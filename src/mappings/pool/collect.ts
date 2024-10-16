@@ -83,19 +83,22 @@ export function handleCollect(event: CollectEvent): void {
   collect.tickUpper = BigInt.fromI32(event.params.tickUpper)
   collect.logIndex = event.logIndex
 
-  updateUniswapDayData(event)
-  updatePoolDayData(event)
-  updatePoolHourData(event)
-  updateTokenDayData(token0 as Token, event)
-  updateTokenDayData(token1 as Token, event)
-  updateTokenHourData(token0 as Token, event)
-  updateTokenHourData(token1 as Token, event)
+  // TODO(Ted): Dont record tx to optimize fee
+  // updateUniswapDayData(event)
+  // updatePoolDayData(event)
+  // updatePoolHourData(event)
+  // updateTokenDayData(token0 as Token, event)
+  // updateTokenDayData(token1 as Token, event)
+  // updateTokenHourData(token0 as Token, event)
+  // updateTokenHourData(token1 as Token, event)
 
   token0.save()
   token1.save()
   factory.save()
   pool.save()
-  collect.save()
+
+  // TODO(Ted): Dont record tx to optimize fee
+  // collect.save()
 
   return
 }

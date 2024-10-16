@@ -105,6 +105,8 @@ export function loadTransaction(event: ethereum.Event): Transaction {
   transaction.timestamp = event.block.timestamp
   transaction.gasUsed = BigInt.zero() //needs to be moved to transaction receipt
   transaction.gasPrice = event.transaction.gasPrice
+  
+  // TODO(Ted): Dont record tx to optimize fee
   transaction.save()
   return transaction as Transaction
 }

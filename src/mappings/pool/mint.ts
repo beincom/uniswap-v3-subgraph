@@ -118,18 +118,21 @@ export function handleMint(event: MintEvent): void {
     // TODO: Update Tick's volume, fees, and liquidity provider count. Computing these on the tick
     // level requires reimplementing some of the swapping code from v3-core.
 
-    updateUniswapDayData(event)
-    updatePoolDayData(event)
-    updatePoolHourData(event)
-    updateTokenDayData(token0 as Token, event)
-    updateTokenDayData(token1 as Token, event)
-    updateTokenHourData(token0 as Token, event)
-    updateTokenHourData(token1 as Token, event)
+    // TODO(Ted): Dont record tx to optimize fee
+    // updateUniswapDayData(event)
+    // updatePoolDayData(event)
+    // updatePoolHourData(event)
+    // updateTokenDayData(token0 as Token, event)
+    // updateTokenDayData(token1 as Token, event)
+    // updateTokenHourData(token0 as Token, event)
+    // updateTokenHourData(token1 as Token, event)
 
     token0.save()
     token1.save()
     pool.save()
     factory.save()
-    mint.save()
+
+    // TODO(Ted): Dont record tx to optimize fee
+    // mint.save()
   }
 }

@@ -87,18 +87,22 @@ export function handleBurn(event: BurnEvent): void {
       lowerTick.save()
       upperTick.save()
     }
-    updateUniswapDayData(event)
-    updatePoolDayData(event)
-    updatePoolHourData(event)
-    updateTokenDayData(token0 as Token, event)
-    updateTokenDayData(token1 as Token, event)
-    updateTokenHourData(token0 as Token, event)
-    updateTokenHourData(token1 as Token, event)
+
+    // TODO(Ted): Dont record tx to optimize fee
+    // updateUniswapDayData(event)
+    // updatePoolDayData(event)
+    // updatePoolHourData(event)
+    // updateTokenDayData(token0 as Token, event)
+    // updateTokenDayData(token1 as Token, event)
+    // updateTokenHourData(token0 as Token, event)
+    // updateTokenHourData(token1 as Token, event)
 
     token0.save()
     token1.save()
     pool.save()
     factory.save()
+
+    // TODO(Ted): Dont record tx to optimize fee
     burn.save()
   }
 }

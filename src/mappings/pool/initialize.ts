@@ -21,8 +21,9 @@ export function handleInitialize(event: Initialize): void {
   bundle.ethPriceUSD = getEthPriceInUSD()
   bundle.save()
 
-  updatePoolDayData(event)
-  updatePoolHourData(event)
+  // TODO(Ted): Dont record tx to optimize fee
+  // updatePoolDayData(event)
+  // updatePoolHourData(event)
 
   // update token prices
   if (token0 && token1) {
